@@ -22,16 +22,17 @@ class PhoneBook
 
 	private:
 
+		static int	_n_of_contacts;
+		static int	_oldest;
+
 		int			_check_options(std::string option);
 		int			_check_number(std::string n);
 		void		_add_contact();
 		void		_list_contacts();
 		void		_update_contact();
-		std::string _check_trunc(std::string str);
+		std::string _check_trunc(std::string str) const;
 		static int	_get_n_of_contacts();
-		static int	_n_of_contacts;
-		static int	_oldest;
-		int			_get_oldest();
+		int			_get_oldest() const;
 		int			_update_oldest();
 };
 

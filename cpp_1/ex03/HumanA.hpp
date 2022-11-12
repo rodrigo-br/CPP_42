@@ -4,17 +4,21 @@
 
 # include <string>
 # include <iostream>
+# include "Weapon.hpp"
 
 class HumanA
 {
 	private:
-		std::string	_weapon;
-		std::string	_name;
+		std::string		const		_name;
+		Weapon			const &		_weapon;
 
 	public:
-		HumanA(std::string name);
+		HumanA(std::string name, Weapon const &weapon);
 		~HumanA();
-	void attack();
+
+	void			attack()		const;
+	std::string		get_name()		const;
+	std::string		get_weapon()	const;
 };
 
 #endif

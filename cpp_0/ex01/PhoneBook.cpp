@@ -106,7 +106,7 @@ void PhoneBook::_update_contact() {
 		PhoneBook::_n_of_contacts++;
 }
 
-int PhoneBook::_get_oldest() {
+int PhoneBook::_get_oldest() const {
 	return PhoneBook::_oldest;
 }
 
@@ -120,7 +120,7 @@ int PhoneBook::_get_n_of_contacts() {
 	return PhoneBook::_n_of_contacts;
 }
 
-std::string PhoneBook::_check_trunc(std::string str) {
+std::string PhoneBook::_check_trunc(std::string str) const {
 	std::string	new_str;
 
 	if (str.length() < 10)
