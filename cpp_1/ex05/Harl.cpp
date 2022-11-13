@@ -1,6 +1,10 @@
 #include "Harl.hpp"
 
-Harl::Harl() : map({"DEBUG", "INFO", "WARNING", "ERROR"}) {
+Harl::Harl() {
+	this->map[0] = "DEBUG";
+	this->map[1] = "INFO";
+	this->map[2] = "WARNING";
+	this->map[3] = "ERROR";
 	std::cout << "Harl Constructor Called" << std::endl;
 }
 
@@ -25,7 +29,8 @@ void	Harl::error( void ) {
 }
 
 void 	Harl::complain( std::string level ) {
-	void (Harl::*funcs[4])() = { &Harl::debug, &Harl::info, &Harl::warning, &Harl::error };
+	void (Harl::*funcs[4])() = { 
+		&Harl::debug, &Harl::info, &Harl::warning, &Harl::error };
 
 	for (int i = 0; i < 4; i++)
 	{

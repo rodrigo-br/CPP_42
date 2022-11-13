@@ -1,29 +1,42 @@
-SRC		=	main.cpp Harl.cpp
+SRCS	=	$(MAIN) $(CLASSES)
+MAIN	=	main.cpp
+CLASSES	=	Harl.cpp
 
-OBJ		=	$(SRC:.cpp=.o)
+OBJ_DIR	=	obj
+OBJS	=	$(SRCS:%.c=$(OBJ_DIR)/%.o)
 
-NAME	=	harlFilter
+NAME	=	harl
 
 CC 		=	c++
-
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98
+
+VPATH	=	./
+HEADER	=	Harl.hpp
+INCLUDE	=	-I ./ -I ./includes
 
 all:		$(NAME)
 
-$(NAME):	$(OBJ)
-			$(CC) $(CFLAGS) -o $@ $^
+$(NAME): $(OBJ_DIR) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+$(OBJ_DIR)/%.o: %.c $(HEADER)
+	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDE)
+
+$(OBJ_DIR):
+	mkdir -p $@
 
 clean:
-			rm -f $(OBJ)
+			rm -rf obj
 
 fclean:		clean
 			rm -f $(NAME)
 
 re:			fclean all
 
-test:		all
-			./$(NAME) 1
-			./$(NAME) DEBUG
-			./$(NAME) INFO
-			./$(NAME) WARNING
-			./$(NAME) ERROR
+test:	all
+		./$(NAME) DEBUG
+		./$(NAME) INFO
+		./$(NAME) WARNING
+		./$(NAME) ERROR
+		./$(NAME) RANDOM
+		./$(NAME)

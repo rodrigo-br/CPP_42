@@ -1,20 +1,32 @@
-SRC		=	main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SRCS	=	$(MAIN) $(CLASSES)
+MAIN	=	main.cpp
+CLASSES	=	HumanA.cpp HumanB.cpp Weapon.cpp
 
-OBJ		=	$(SRC:.cpp=.o)
+OBJ_DIR	=	obj
+OBJS	=	$(SRCS:%.c=$(OBJ_DIR)/%.o)
 
 NAME	=	violence
 
 CC 		=	c++
-
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98
+
+VPATH	=	./
+HEADER	=	utils.hpp Zombie.hpp
+INCLUDE	=	-I ./ -I ./includes
 
 all:		$(NAME)
 
-$(NAME):	$(OBJ)
-			$(CC) $(CFLAGS) -o $@ $^
+$(NAME): $(OBJ_DIR) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+$(OBJ_DIR)/%.o: %.c $(HEADER)
+	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDE)
+
+$(OBJ_DIR):
+	mkdir -p $@
 
 clean:
-			rm -f $(OBJ)
+			rm -rf obj
 
 fclean:		clean
 			rm -f $(NAME)

@@ -1,6 +1,10 @@
 #include "Harl.hpp"
 
-Harl::Harl() : map({"DEBUG", "INFO", "WARNING", "ERROR"}) {
+Harl::Harl() {
+	this->map[0] = "DEBUG";
+	this->map[1] = "INFO";
+	this->map[2] = "WARNING";
+	this->map[3] = "ERROR";
 	std::cout << "Harl Constructor Called" << std::endl;
 }
 

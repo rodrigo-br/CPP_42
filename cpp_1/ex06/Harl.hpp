@@ -4,6 +4,7 @@
 
 # include <string>
 # include <iostream>
+# include <cstdlib>
 
 class Harl
 {
@@ -19,7 +20,7 @@ class Harl
 		Harl();
 		~Harl();
 
-		std::string		const	map[4];
+		std::string		map[4];
 		void 	complain( std::string level );
 };
 
