@@ -1,5 +1,8 @@
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
+#include <sstream>
+ 
+#define SSTR( x ) static_cast< std::ostringstream & >( std::ostringstream() << std::dec << x ).str()
 
 PhoneBook::PhoneBook() {
 	std::cout << "PhoneBook Constructor called" << std::endl;
@@ -78,7 +81,7 @@ void PhoneBook::_list_contacts() {
 	write_at_right("Nickname", false);
 	std::cout << std::endl;
 	for (int i = 0; i < contacts; i++) {
-		write_at_right(std::to_string(this->contacts[i].index), true);
+		write_at_right(SSTR(this->contacts[i].index), true);
 		write_at_right(_check_trunc(this->contacts[i].first_name), true);
 		write_at_right(_check_trunc(this->contacts[i].last_name), true);
 		write_at_right(_check_trunc(this->contacts[i].nickname), false);
@@ -131,7 +134,7 @@ std::string PhoneBook::_check_trunc(std::string str) const {
 }
 
 int		PhoneBook::_check_number(std::string n) {
-	for (int i = 0; i < n.length(); i++) {
+	for (size_t i = 0; i < n.length(); i++) {
 		if (std::isalpha(n[i]))
 		{
 			std::cout << "The number shouldn't have any alphabetical value! DUH!"

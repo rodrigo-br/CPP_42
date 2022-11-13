@@ -1,3 +1,4 @@
+#pragma once
 #ifndef PHONEBOOK_H
 # define PHONEBOOK_H
 
@@ -7,6 +8,7 @@
 # include <string>
 # include <ios>
 # include <iostream>
+# include <cstdlib>
 # include "Contact.hpp"
 
 class PhoneBook

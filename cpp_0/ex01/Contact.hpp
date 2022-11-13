@@ -1,3 +1,4 @@
+#pragma once
 #ifndef CONTACT_H
 # define CONTACT_H
 
