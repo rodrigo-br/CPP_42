@@ -27,8 +27,10 @@ void	Harl::error( void ) {
 void 	Harl::complain( std::string level ) {
 	void (Harl::*funcs[4])() = { &Harl::debug, &Harl::info, &Harl::warning, &Harl::error };
 
-	for (int i = 0; i < 4; i++) {
+	for (int i = 0; i < 4; i++)
+	{
 		if (level.compare(map[i]) == 0) {
+			std::cout << map[i] << std::endl;
 			(this->*funcs[i])();
 			break ;
 		}

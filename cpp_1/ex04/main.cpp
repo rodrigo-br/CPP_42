@@ -19,12 +19,10 @@ int main(int argc, char **argv)
 	std::string		s2 = argv[3];
 	std::string		line;
 	size_t			pos;
-	while (!ifs.eof())
-	{
+	while (!ifs.eof()) {
 		std::getline(ifs, line);
 		pos = line.find(s1, 0);
-		if (pos < line.length())
-		{
+		if (pos < line.length()) {
 			line.erase(pos, s1.length());
 			line.insert(pos, s2);
 		}
