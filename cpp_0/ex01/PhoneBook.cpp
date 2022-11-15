@@ -61,13 +61,13 @@ void PhoneBook::_add_contact() {
 	this->_update_contact();
 }
 
-void write_at_right(std::string str, bool pipe) {
+static void write_at_right(std::string str, bool pipe) {
 	std::cout.width(10); std::cout << std::right << str;
 	if (pipe)
 		std::cout << "|";
 }
 
-void PhoneBook::_list_contacts() {
+void PhoneBook::_list_contacts() const {
 	int contacts = this->_get_n_of_contacts();
 	int	index;
 
@@ -133,7 +133,7 @@ std::string PhoneBook::_check_trunc(std::string str) const {
 	return (new_str);
 }
 
-int		PhoneBook::_check_number(std::string n) {
+int		PhoneBook::_check_number(std::string n) const {
 	for (size_t i = 0; i < n.length(); i++) {
 		if (std::isalpha(n[i]))
 		{

@@ -28,9 +28,9 @@ class PhoneBook
 		static int	_oldest;
 
 		int			_check_options(std::string option);
-		int			_check_number(std::string n);
+		int			_check_number(std::string n) const;
 		void		_add_contact();
-		void		_list_contacts();
+		void		_list_contacts() const;
 		void		_update_contact();
 		std::string _check_trunc(std::string str) const;
 		static int	_get_n_of_contacts();
