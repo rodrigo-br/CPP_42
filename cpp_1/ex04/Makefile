@@ -22,6 +22,6 @@ fclean:		clean
 re:			fclean all
 
 test:		all
-	./$(NAME) main.cp string cavalinho
-	./$(NAME) main.cp 1 string cavalinho
 	./$(NAME) main.cpp std cavalinho
+#	./$(NAME) main.cp string cavalinho
+#	./$(NAME) main.cp 1 string cavalinho

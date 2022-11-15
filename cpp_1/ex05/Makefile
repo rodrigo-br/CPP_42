@@ -2,31 +2,22 @@ SRCS	=	$(MAIN) $(CLASSES)
 MAIN	=	main.cpp
 CLASSES	=	Harl.cpp
 
-OBJ_DIR	=	obj
-OBJS	=	$(SRCS:%.c=$(OBJ_DIR)/%.o)
+OBJS	=	$(SRCS:.cpp=.o)
 
 NAME	=	harl
 
 CC 		=	c++
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
-VPATH	=	./
 HEADER	=	Harl.hpp
-INCLUDE	=	-I ./ -I ./includes
 
 all:		$(NAME)
 
 $(NAME): $(OBJ_DIR) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-$(OBJ_DIR)/%.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDE)
-
-$(OBJ_DIR):
-	mkdir -p $@
-
 clean:
-			rm -rf obj
+			rm -rf $(OBJS)
 
 fclean:		clean
 			rm -f $(NAME)

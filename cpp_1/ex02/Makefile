@@ -1,20 +1,20 @@
 SRC		=	main.cpp
 
-OBJ		=	$(SRC:.cpp=.o)
+OBJS	=	$(SRC:.cpp=.o)
 
-NAME	=	brain
+NAME	=	zombie
 
 CC 		=	c++
-
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98
+
 
 all:		$(NAME)
 
-$(NAME):	$(OBJ)
-			$(CC) $(CFLAGS) -o $@ $^
+$(NAME): $(OBJ_DIR) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:
-			rm -f $(OBJ)
+			rm -rf $(OBJS)
 
 fclean:		clean
 			rm -f $(NAME)
