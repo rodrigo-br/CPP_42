@@ -1,30 +1,26 @@
 #include "Fixed.hpp"
 
 int main( void ) {
-	Fixed a(40);
-	std::cout << ++a << std::endl;
-	// Fixed d = b / a;
-	// Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-	// std::cout << a << std::endl;
-	// std::cout << ++a << std::endl;
-	// std::cout << a << std::endl;
-	// std::cout << a++ << std::endl;
-	// std::cout << a << std::endl;
-	// std::cout << b << std::endl;
-	// std::cout << Fixed::max( a, b ) << std::endl;
-	// std::cout << d << std::endl;
-	// if (c < b) {std::cout << "C < B" << std::endl;}
-	// else {std::cout << "C ISN'T < B" << std::endl;}
-	// if (c > b) {std::cout << "C > B" << std::endl;}
-	// else {std::cout << "C ISN'T > B" << std::endl;}
-	// if (c == b) {std::cout << "C == B" << std::endl;}
-	// else {std::cout << "C ISN'T == B" << std::endl;}
-	// if (c != b) {std::cout << "C != B" << std::endl;}
-	// else {std::cout << "C ISN'T != B" << std::endl;}
-	// if (c >= b) {std::cout << "C >= B" << std::endl;}
-	// else {std::cout << "C ISN'T >= B" << std::endl;}
-	// if (c <= b) {std::cout << "C <= B" << std::endl;}
-	// else {std::cout << "C ISN'T <= B" << std::endl;}
+	Fixed a;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+	Fixed c(5);
+	std::cout.width(10); std::cout << std::left << "a: " << a << std::endl;
+	std::cout.width(10); std::cout << std::left << "++a: " << ++a << std::endl;
+	std::cout.width(10); std::cout << std::left << "a: " << a << std::endl;
+	std::cout.width(10); std::cout << std::left << "a++: "<< a++ << std::endl;
+	std::cout.width(10); std::cout << std::left << "a: " << a << std::endl;
+	std::cout.width(10); std::cout << std::left << "b: " <<  b << std::endl;
+	std::cout.width(10); std::cout << std::left << "c: " <<  c << std::endl;
+	std::cout.width(10); std::cout << std::left << "max(c,b): " << Fixed::max( c, b ) << std::endl;
+	std::cout.width(10); std::cout << std::left << "c + b: " << c + b << std::endl;
+	std::cout.width(10); std::cout << std::left << "c - b: " << c - b << std::endl;
+	std::cout.width(10); std::cout << std::left << "c * b: " << c * b << std::endl;
+	std::cout.width(10); std::cout << std::left << "c / b: " << c / b << std::endl;
+	std::cout.width(10); std::cout << std::left << "c > b: " << (c > b) << std::endl;
+	std::cout.width(10); std::cout << std::left << "c < b: " << (c < b) << std::endl;
+	std::cout.width(10); std::cout << std::left << "c != b: " << (c != b) << std::endl;
+	std::cout.width(10); std::cout << std::left << "c == b: " << (c == b) << std::endl;
+	std::cout.width(10); std::cout << std::left << "c >= b: " << (c >= b) << std::endl;
+	std::cout.width(10); std::cout << std::left << "c <= b: " << (c <= b) << std::endl;
 	return 0;
 }
-
