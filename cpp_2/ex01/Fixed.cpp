@@ -1,11 +1,21 @@
 #include "Fixed.hpp"
 
 Fixed::Fixed() : _rawBits(0) {
-	std::cout << "Fixed Constructor called" << std::endl;
+	std::cout << "Fixed Default Constructor called" << std::endl;
 }
 
 Fixed::~Fixed() {
 	std::cout << "Fixed Destructor called" << std::endl;
+}
+
+Fixed::Fixed(const int value) {
+	std::cout << "Fixed int overload Constructor called" << std::endl;
+	this->_rawBits = value;
+}
+
+Fixed::Fixed(const float value) {
+	std::cout << "Fixed float overload Constructor called" << std::endl;
+	this->_rawBits = value;
 }
 
 Fixed::Fixed(Fixed const &src) {
@@ -20,6 +30,12 @@ Fixed &Fixed::operator=(Fixed const &rhs) {
 	return *this;
 }
 
+std::ostream		&operator<<(std::ostream &o, Fixed const &i)
+{
+	o << i.getRawBits();
+	return (o);
+}
+
 int		Fixed::getRawBits( void ) const {
 	std::cout << "getRawBits member function called" << std::endl;
 	return this->_rawBits;
@@ -28,4 +44,11 @@ int		Fixed::getRawBits( void ) const {
 void 	Fixed::setRawBits( int const raw ) {
 	std::cout << "setRawBits member function called" << std::endl;
 	this->_rawBits = raw;
+}
+
+float 		Fixed::toFloat( void ) const {
+	return this->_rawBits;
+}
+int 		Fixed::toInt( void ) const {
+	return this->_rawBits;
 }
