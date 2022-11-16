@@ -14,15 +14,22 @@ Point::Point(float const x, float const y) : _x(x), _y(y) {
 }
 
 const Point &Point::operator=(Point const &rhs) {
-	if (this != &rhs)
-	{
-		this->_x = rhs._x;
+	if (this != &rhs) {
+		const_cast<Fixed &>(this->_x) = rhs._x;
 	}
 	return *this;
 }
 
+Fixed	Point::getX(void) const {
+	return this->_x;
+}
+
+Fixed	Point::getY(void) const {
+	return this->_y;
+}
+
 std::ostream		&operator<<(std::ostream &o, Point const &value)
 {
-	o << value._x;
+	o << "x = " << value.getX() << "\ny = " << value.getY();
 	return (o);
 }

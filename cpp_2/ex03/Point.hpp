@@ -19,6 +19,9 @@ class Point
 		~Point();
 
 		const Point &operator=(Point const &rhs);
+
+		Fixed	getX(void) const;
+		Fixed	getY(void) const;
 };
 
 std::ostream				&operator<<(std::ostream &o, Point const &value);

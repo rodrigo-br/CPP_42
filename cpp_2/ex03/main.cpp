@@ -1,31 +1,15 @@
 #include "Fixed.hpp"
+#include "Point.hpp"
+
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 
 int main( void ) {
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-	Fixed c(5);
-	std::cout.width(10); std::cout << std::left << "a: " << a << std::endl;
-	std::cout.width(10); std::cout << std::left << "++a: " << ++a << std::endl;
-	std::cout.width(10); std::cout << std::left << "a: " << a << std::endl;
-	std::cout.width(10); std::cout << std::left << "a++: "<< a++ << std::endl;
-	std::cout.width(10); std::cout << std::left << "a: " << a << std::endl;
-	std::cout.width(10); std::cout << std::left << "--a: " << --a << std::endl;
-	std::cout.width(10); std::cout << std::left << "a: " << a << std::endl;
-	std::cout.width(10); std::cout << std::left << "a--: " << a-- << std::endl;
-	std::cout.width(10); std::cout << std::left << "a: " << a << std::endl;
-	std::cout.width(10); std::cout << std::left << "b: " <<  b << std::endl;
-	std::cout.width(10); std::cout << std::left << "c: " <<  c << std::endl;
-	std::cout.width(10); std::cout << std::left << "max(c,b): " << Fixed::max( c, b ) << std::endl;
-	std::cout.width(10); std::cout << std::left << "min(c,b): " << Fixed::min( c, b ) << std::endl;
-	std::cout.width(10); std::cout << std::left << "c + b: " << c + b << std::endl;
-	std::cout.width(10); std::cout << std::left << "c - b: " << c - b << std::endl;
-	std::cout.width(10); std::cout << std::left << "c * b: " << c * b << std::endl;
-	std::cout.width(10); std::cout << std::left << "c / b: " << c / b << std::endl;
-	std::cout.width(10); std::cout << std::left << "c > b: " << (c > b) << std::endl;
-	std::cout.width(10); std::cout << std::left << "c < b: " << (c < b) << std::endl;
-	std::cout.width(10); std::cout << std::left << "c != b: " << (c != b) << std::endl;
-	std::cout.width(10); std::cout << std::left << "c == b: " << (c == b) << std::endl;
-	std::cout.width(10); std::cout << std::left << "c >= b: " << (c >= b) << std::endl;
-	std::cout.width(10); std::cout << std::left << "c <= b: " << (c <= b) << std::endl;
+	Point	A(-3, -7);
+	Point	B(10, 0);
+	Point	C(-10, 6);
+	Point	point(0, 0);
+
+	//std::cout << A << "\n--------\n" << B << "\n--------\n" << C << "\n--------\n" << point << std::endl;
+	std::cout << bsp(A, B, C, point) << std::endl;
 	return 0;
 }
