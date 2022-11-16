@@ -23,6 +23,16 @@ class Fixed
 		Fixed(Fixed const &src);
 		~Fixed();
 		Fixed &operator=(Fixed const &rhs);
+		Fixed &operator<(Fixed const &rhs);
+		Fixed &operator>(Fixed const &rhs);
+		Fixed &operator==(Fixed const &rhs);
+		Fixed &operator!=(Fixed const &rhs);
+		Fixed &operator<=(Fixed const &rhs);
+		Fixed &operator>=(Fixed const &rhs);
+		Fixed &operator+(Fixed const &rhs);
+		Fixed &operator-(Fixed const &rhs);
+		Fixed &operator*(Fixed const &rhs);
+		Fixed &operator/(Fixed const &rhs);
 
 		int					getRawBits( void ) const;
 		void 				setRawBits( int const raw );
