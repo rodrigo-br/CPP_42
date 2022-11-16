@@ -57,6 +57,17 @@ Fixed Fixed::operator++(int) {
 	return newFixed;
 }
 
+Fixed &Fixed::operator--() {
+	this->setRawBits(this->getRawBits() - 1);
+	return *this;
+}
+
+Fixed Fixed::operator--(int) {
+	Fixed newFixed = *this;
+	this->setRawBits(this->getRawBits() - 1);
+	return newFixed;
+}
+
 bool Fixed::operator<(Fixed const &rhs) const {
 	return this->getRawBits() < rhs.getRawBits();
 }
@@ -111,6 +122,18 @@ Fixed &Fixed::max(Fixed &firt,Fixed &right) {
 
 Fixed const &Fixed::max(Fixed const &firt, Fixed const &right) {
 	if (firt > right)
+		return firt;
+	return right;
+}
+
+Fixed &Fixed::min(Fixed &firt,Fixed &right) {
+	if (firt < right)
+		return firt;
+	return right;
+}
+
+Fixed const &Fixed::min(Fixed const &firt, Fixed const &right) {
+	if (firt < right)
 		return firt;
 	return right;
 }
