@@ -16,6 +16,7 @@ Point::Point(float const x, float const y) : _x(x), _y(y) {
 const Point &Point::operator=(Point const &rhs) {
 	if (this != &rhs) {
 		const_cast<Fixed &>(this->_x) = rhs._x;
+		const_cast<Fixed &>(this->_y) = rhs._y;
 	}
 	return *this;
 }
