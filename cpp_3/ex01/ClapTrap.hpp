@@ -8,6 +8,9 @@
 class ClapTrap
 {
 	private:
+		static std::string const	_type;
+		
+	protected:
 		std::string	const	_name;
 		int					_hitPoints;
 		int					_energyPoints;
@@ -28,6 +31,9 @@ class ClapTrap
 		int			getHP() const;
 		int			getEP() const;
 		int			getDMG() const;
+		void		setHP(unsigned int value);
+		void		setEP(unsigned int value);
+		void		setDMG(unsigned int value);
 };
 
 std::ostream	&operator<<(std::ostream &o, ClapTrap const &value);
