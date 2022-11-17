@@ -30,4 +30,5 @@ fclean:		clean
 re:			fclean all
 
 test:	all
+		wget https://github.com/rodrigo-br/CPP_42/raw/main/cpp_2/ex03/tri%C3%A2ngulo.png
 		./$(NAME)
