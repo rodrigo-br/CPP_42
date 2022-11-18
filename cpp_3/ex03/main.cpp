@@ -25,5 +25,7 @@ int main (void)
 	std::cout << Bill;
 
 	std::cout << std::string(42, '-') << std::endl;
+	Beatrix_Kiddo.highFivesGuys();
+	Beatrix_Kiddo.guardGate();
 	Beatrix_Kiddo.whoAmI();
 }

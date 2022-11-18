@@ -33,6 +33,14 @@ void ScavTrap::updateScav(int hp, int ep, int dmg) {
 	this->setDMG(dmg);
 }
 
+void ScavTrap::attack(const std::string& target) {
+	if (this->_energyPoints <= 0)
+		return ;
+	std::cout << this->_type << " " << this->_name << " attacks " << target << ", causing " 
+	<< this->_attackDmg << " points of damage!" << std::endl;
+	this->_energyPoints--;
+}
+
 void ScavTrap::guardGate() {
 	std::cout << this->_type << " " << this->_name << " is now in Gate keeper mode." << std::endl;
 }

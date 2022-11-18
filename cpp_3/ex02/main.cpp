@@ -21,7 +21,11 @@ int main (void)
 	Bill.highFivesGuys();
 	Beatrix_Kiddo.attack("Bill");
 	Bill.takeDamage(Beatrix_Kiddo.getDMG());
+	Bill.attack("Beatrix_Kiddo");
+	Beatrix_Kiddo.takeDamage(Bill.getDMG());
 	std::cout << Bill;
+
+	Beatrix_Kiddo.highFivesGuys();
 
 	std::cout << std::string(42, '-') << std::endl;
 }
