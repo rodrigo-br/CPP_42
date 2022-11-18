@@ -15,6 +15,7 @@ class ScavTrap : virtual public ClapTrap
 	protected:
 		void	updateScav(int hp, int ep, int dmg);
 
+	public:
 		ScavTrap();
 		ScavTrap(std::string const name);
 		ScavTrap(ScavTrap const &src);
