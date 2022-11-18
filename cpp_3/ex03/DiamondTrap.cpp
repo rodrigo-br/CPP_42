@@ -1,15 +1,20 @@
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap() {
-	updateDiamond(FragTrap().getHP(), ScavTrap().getEP(), FragTrap().getDMG());
+	ScavTrap::_energyPoints = 50;//since fragtrap's constructor comes last, it overrides the scavtrap default value
+	updateDiamond(FragTrap::getHP(), ScavTrap::getEP(), FragTrap::getDMG());
 }
 
-DiamondTrap::DiamondTrap(std::string const name) : ClapTrap(name), ScavTrap(), FragTrap() {
+DiamondTrap::DiamondTrap(std::string const name) :
+ClapTrap(name + "_clap_name"), ScavTrap(name + "_scav_name"), FragTrap(name + "_frag_name") {
 	std::cout << this->_type << " Named Constructor called" << std::endl;
-	updateDiamond(FragTrap().getHP(), ScavTrap().getEP(), FragTrap().getDMG());
+	ScavTrap::_energyPoints = 50;
+	this->_name = name;
+	updateDiamond(FragTrap::getHP(), ScavTrap::getEP(), FragTrap::getDMG());
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap const &src) : ClapTrap(src), ScavTrap(), FragTrap() {
+DiamondTrap::DiamondTrap(DiamondTrap const &src) :
+ClapTrap(src._name + "_clap_name"), ScavTrap(src._name + "_scav_name"), FragTrap(src._name + "_frag_name") {
 	std::cout << this->_type << " Copy Constructor called" << std::endl;
 	*this = src;
 }
@@ -32,10 +37,19 @@ std::ostream	&operator<<(std::ostream &o, DiamondTrap const &value) {
 	return o;
 }
 
+std::string DiamondTrap::getName() const {
+	return this->_name;
+}
+
 void DiamondTrap::updateDiamond(int hp, int ep, int dmg) {
 	this->setHP(hp);
 	this->setEP(ep);
 	this->setDMG(dmg);
+}
+
+void DiamondTrap::whoAmI() {
+	std::cout << "My name is " << this->getName() << ", and my ClapTrap Name is "
+	<< this->ClapTrap::getName() << std::endl;
 }
 
 std::string	const	DiamondTrap::_type = "DiamondTrap";

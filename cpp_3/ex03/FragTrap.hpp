@@ -12,9 +12,9 @@ class FragTrap : virtual public ClapTrap
 
 		static std::string		const	_type;
 
+	protected:
 		void	updateFrag(int hp, int ep, int dmg);
 
-	public:
 		FragTrap();
 		FragTrap(std::string const name);
 		FragTrap(FragTrap const &src);

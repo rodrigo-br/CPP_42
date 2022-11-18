@@ -25,4 +25,5 @@ int main (void)
 	std::cout << Bill;
 
 	std::cout << std::string(42, '-') << std::endl;
+	Beatrix_Kiddo.whoAmI();
 }

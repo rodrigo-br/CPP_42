@@ -12,9 +12,9 @@ class ScavTrap : virtual public ClapTrap
 
 		static std::string		const	_type;
 
+	protected:
 		void	updateScav(int hp, int ep, int dmg);
 
-	public:
 		ScavTrap();
 		ScavTrap(std::string const name);
 		ScavTrap(ScavTrap const &src);
@@ -22,7 +22,7 @@ class ScavTrap : virtual public ClapTrap
 
 		ScavTrap &operator=(ScavTrap const &rhs);
 
-		void attack(const std::string& target);
+		void attack(const std::string& target);//override
 		void guardGate();
 	
 };
