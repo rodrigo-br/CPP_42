@@ -1,34 +1,34 @@
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-Animal::Animal() : type("Animal") {
+WrongAnimal::WrongAnimal() : type("WrongAnimal") {
 	std::cout << this->getType() << " Default Ctor" << std::endl;
 }
 
-Animal::Animal(Animal const &src) : type("Animal") {
+WrongAnimal::WrongAnimal(WrongAnimal const &src) : type("WrongAnimal") {
 	std::cout << this->getType() << " Copy Ctor" << std::endl;
 	*this = src;
 }
 
-Animal	&Animal::operator=(Animal const &src) {
+WrongAnimal	&WrongAnimal::operator=(WrongAnimal const &src) {
 	std::cout << this->getType() << " Assignment OPtor" << std::endl;
 	if (this != &src)
 		this->type = src.getType();
 	return *this;
 }
 
-Animal::~Animal() {
+WrongAnimal::~WrongAnimal() {
 	std::cout << this->getType() << " Dtor" << std::endl;
 }
 
-std::string	Animal::getType() const {
+std::string	WrongAnimal::getType() const {
 	return this->type;
 }
 
-void	Animal::makeSound() const {
+void	WrongAnimal::makeSound() const {
 	std::cout << "..." << std::endl;
 }
 
-std::ostream	&operator<<(std::ostream &o, Animal const &value) {
+std::ostream	&operator<<(std::ostream &o, WrongAnimal const &value) {
 	o << "Eu sou um " << value.getType() << std::endl;
 	return o;
 }

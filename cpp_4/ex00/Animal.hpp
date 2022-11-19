@@ -15,12 +15,12 @@ class Animal
 	public:
 		Animal();
 		Animal(Animal const &src);
-		~Animal();
+		virtual ~Animal();
 
 	Animal	&operator=(Animal const &src);
 
-	void			makeSound() const;
-	std::string		getType() 	const;
+	virtual void			makeSound() const;
+	virtual std::string		getType() 	const;
 };
 
 std::ostream	&operator<<(std::ostream &o, Animal const &value);
