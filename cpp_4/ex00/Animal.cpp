@@ -24,6 +24,9 @@ std::string	Animal::getType() const {
 	return this->type;
 }
 
+void	Animal::makeSound() const {
+}
+
 std::ostream	&operator<<(std::ostream &o, Animal const &value) {
 	o << "Eu sou um " << value.getType() << std::endl;
 	return o;

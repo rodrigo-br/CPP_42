@@ -24,6 +24,10 @@ std::string	Dog::getType() const {
 	return this->type;
 }
 
+void Dog::makeSound() const {
+	std::cout << this->getType() << " Barks." << std::endl;
+}
+
 std::ostream	&operator<<(std::ostream &o, Dog const &value) {
 	o << "Eu sou um " << value.getType() << std::endl;
 	return o;

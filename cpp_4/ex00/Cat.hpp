@@ -18,7 +18,8 @@ class Cat : public Animal
 
 	Cat	&operator=(Cat const &src);
 
-	std::string		getType() const;
+	void			makeSound() const;
+	std::string		getType() 	const;
 };
 
 std::ostream	&operator<<(std::ostream &o, Cat const &value);

@@ -19,7 +19,8 @@ class Animal
 
 	Animal	&operator=(Animal const &src);
 
-	std::string		getType() const;
+	void			makeSound() const;
+	std::string		getType() 	const;
 };
 
 std::ostream	&operator<<(std::ostream &o, Animal const &value);

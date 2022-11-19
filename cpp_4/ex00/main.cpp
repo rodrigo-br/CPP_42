@@ -1,21 +1,25 @@
 #include "Animal.hpp"
 #include "Dog.hpp"
+#include "Cat.hpp"
 
 int main(void)
 {
-	Animal	a;
-	Animal b(a);
-	Animal c = b;
+	std::cout << std::string(42, '-') << std::endl;
+	const Animal	*a = new Animal();
+	const Animal 	*b = new Dog();
+	const Animal 	*c = new Cat();
 	std::cout << std::string(42, '-') << std::endl;
 
-	Dog		d;
-	Dog		e(d);
-	Dog		f = e;
+	std::cout << *a;
+	std::cout << *b;
+	std::cout << *c;
+
 	std::cout << std::string(42, '-') << std::endl;
 
-	std::cout << c;
-	std::cout << d;
-	std::cout << e;
+	a->makeSound();
+	b->makeSound();
+	c->makeSound();
+
 	std::cout << std::string(42, '-') << std::endl;
 	return (0);
 }

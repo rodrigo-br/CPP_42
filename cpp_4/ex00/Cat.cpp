@@ -24,6 +24,10 @@ std::string	Cat::getType() const {
 	return this->type;
 }
 
+void Cat::makeSound() const {
+	std::cout << this->getType() << " Meows." << std::endl;
+}
+
 std::ostream	&operator<<(std::ostream &o, Cat const &value) {
 	o << "Eu sou um " << value.getType() << std::endl;
 	return o;

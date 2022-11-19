@@ -18,7 +18,8 @@ class Dog : public Animal
 
 	Dog	&operator=(Dog const &src);
 
-	std::string		getType() const;
+	void			makeSound() const;
+	std::string		getType()	const;
 };
 
 std::ostream	&operator<<(std::ostream &o, Dog const &value);
