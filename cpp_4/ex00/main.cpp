@@ -34,5 +34,6 @@ int main(void)
 	delete a;
 	delete b;
 	delete c;
+	delete wrongcat;
 	return (0);
 }
