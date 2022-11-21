@@ -7,6 +7,7 @@
 class Dog : public Animal
 {
 	private:
+		Brain			*brain;
 
 	protected:
 		std::string		type;
@@ -14,12 +15,13 @@ class Dog : public Animal
 	public:
 		Dog();
 		Dog(Dog const &src);
-		~Dog();
+		virtual ~Dog();
 
 	Dog	&operator=(Dog const &src);
 
 	void			makeSound() const;
 	std::string		getType()	const;
+	Brain			*getBrain()	const;
 };
 
 std::ostream	&operator<<(std::ostream &o, Dog const &value);
