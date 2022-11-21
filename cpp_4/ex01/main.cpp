@@ -9,13 +9,13 @@ void t(std::string msg) {
 	std::cout << "\t\t" << msg << std::endl;
 }
 
-void constructors(Cat **a, Cat **b) {
+void constructors(const Cat **a, const Cat **b) {
 	print_line();
 	*a = new Cat();
 	*b = new Cat();
 }
 
-void print_adress(Cat **a, Cat **b) {
+void print_adress(const Cat **a, const Cat **b) {
 	print_line();
 	std::cout << *a << std::endl;
 	std::cout << *b << std::endl;
@@ -33,12 +33,12 @@ void test_simple_polymorphism() {
 	delete yet_to_be_a_cat;
 }
 
-void destructors(Cat **a, Cat **b) {
+void destructors(const Cat **a, const Cat **b) {
 	delete *a;
 	delete *b;
 }
 
-void test_brain(Cat **a) {
+void test_brain(const Cat **a) {
 	print_line();
 	std::cout << (*a)->getBrain()->getIdea(1) << std::endl;
 
@@ -69,8 +69,8 @@ void test_assignment_deep_cpy() {
 
 void test_cpy_constr_deep_cpy() {
 	print_line();
-	Cat *a;
-	Cat *b;
+	const Cat *a;
+	const Cat *b;
 
 	a = new Cat();
 	b = new Cat(*a);					print_line();
@@ -102,8 +102,8 @@ void test_arrays_half_cat_half_dog() {
 int main(void)
 {
 	print_line();
-	Cat *cat;
-	Cat *schrodinger;
+	const Cat *cat;
+	const Cat *schrodinger;
 
 	t("Ctors");			constructors(&cat, &schrodinger); 	print_line();
 	t("Adress: ");		print_adress(&cat, &schrodinger); 	print_line();
