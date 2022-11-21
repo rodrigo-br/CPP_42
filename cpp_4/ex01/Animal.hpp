@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <string>
+#include "Brain.hpp"
 
 class Animal
 {
@@ -14,7 +15,6 @@ class Animal
 		
 	public:
 		Animal();
-		Animal(std::string str);
 		Animal(Animal const &src);
 		virtual ~Animal();
 

@@ -2,15 +2,12 @@
 #ifndef CAT_H
 # define CAT_H
 
-#include "Brain.hpp"
 #include "Animal.hpp"
-
-class Brain;
 
 class Cat : public Animal
 {
 	private:
-		Brain			*_brain;
+		Brain			*brain;
 
 	protected:
 		std::string		type;
@@ -18,13 +15,13 @@ class Cat : public Animal
 	public:
 		Cat();
 		Cat(Cat const &src);
-		~Cat();
+		virtual ~Cat();
 
 	Cat	&operator=(Cat const &src);
 
 	void			makeSound() const;
 	std::string		getType() 	const;
-	Brain			useBrain();
+	Brain			*getBrain()	const;
 };
 
 std::ostream	&operator<<(std::ostream &o, Cat const &value);

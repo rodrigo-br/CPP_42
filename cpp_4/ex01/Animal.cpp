@@ -4,19 +4,14 @@ Animal::Animal() : type("Animal") {
 	std::cout << this->getType() << " Default Ctor" << std::endl;
 }
 
-Animal::Animal(std::string str) : type(str) {
-	std::cout << this->getType() << " Default Ctor" << std::endl;
-}
-
 Animal::Animal(Animal const &src) : type("Animal") {
-	std::cout << this->getType() << " Copy Ctor" << std::endl;
 	*this = src;
+	std::cout << this->getType() << " Copy Ctor" << std::endl;
 }
 
 Animal	&Animal::operator=(Animal const &src) {
+	this->type = src.getType();
 	std::cout << this->getType() << " Assignment OPtor" << std::endl;
-	if (this != &src)
-		this->type = src.getType();
 	return *this;
 }
 

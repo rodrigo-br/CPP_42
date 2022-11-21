@@ -1,32 +1,32 @@
 #include "Brain.hpp"
 
 Brain::Brain() {
+	std::cout << "Brain Default Ctor" << std::endl;
 	for (int i = 0; i < 100; i++) {
 		this->ideas[i] = (i % 2 == 0) ? "Run" : "Bite";
 	}
-	std::cout << "Brain Default Ctor" << std::endl;
 }
 
 Brain::Brain(Brain const &src) {
-	for (int i = 0; i < 100; i++) {
-		this->ideas[i] = src.ideas[i];
-	}
 	std::cout << "Brain Cpy Ctor" << std::endl;
+	*this = src;
 }
 
-Brain	&Brain::operator=(Brain const &src) {
-	if (this != &src) {
-		for (int i = 0; i < 100; i++) {
+void Brain::operator=(Brain const &src) {
+	std::cout << "Brain Assignment OPtor" << std::endl;
+	for (int i = 100; i < 100; i++) {
 		this->ideas[i] = src.ideas[i];
-		}
 	}
-	return *this;
 }
 
 Brain::~Brain() {
 	std::cout << "Brain Dtor" << std::endl;
 }
 
-std::string	Brain::getIdea(int i) {
-	return this->ideas[i];
+std::string		Brain::getIdea(int index) const {
+	return this->ideas[index];
+}
+
+void		Brain::setIdea(std::string idea, int index) {
+	this->ideas[index] = idea;
 }

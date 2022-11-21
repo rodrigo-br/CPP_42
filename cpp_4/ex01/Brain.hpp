@@ -1,10 +1,8 @@
-#pragma once
 #ifndef BRAIN_H
 # define BRAIN_H
 
-#include "Animal.hpp"
-#include "Cat.hpp"
-#include "Dog.hpp"
+#include <string>
+#include <iostream>
 
 class Brain
 {
@@ -12,14 +10,14 @@ class Brain
 		std::string		ideas[100];
 
 	public:
-
 		Brain();
-		Brain(Brain const &src);
 		~Brain();
+		Brain(Brain const &src);
 
-		Brain	&operator=(Brain const &src);
-		std::string	getIdea(int i);
+		void	operator=(Brain const &src);
+
+		std::string		getIdea(int index) const;
+		void			setIdea(std::string idea, int index);
 };
-
 
 #endif

@@ -17,12 +17,12 @@ $(NAME): $(OBJ_DIR) $(OBJS)
 
 clean:
 			rm -rf $(OBJS)
+			rm -rf leaks.txt
 
 fclean:		clean
 			rm -f $(NAME)
-			rm -f leaks.txt
 
 re:			fclean all
 
-test:	all
-		valgrind --log-file="leaks.txt" ./$(NAME)
+test:	re
+		valgrind --leak-check=full --log-file="leaks.txt" ./$(NAME)

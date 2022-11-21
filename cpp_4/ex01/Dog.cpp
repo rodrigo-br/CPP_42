@@ -2,7 +2,6 @@
 
 Dog::Dog() : type("Dog") {
 	std::cout << this->getType() << " Default Ctor" << std::endl;
-	this->_brain = new Brain();
 }
 
 Dog::Dog(Dog const &src) : Animal(), type("Dog") {
@@ -19,7 +18,6 @@ Dog	&Dog::operator=(Dog const &src) {
 
 Dog::~Dog() {
 	std::cout << this->getType() << " Dtor" << std::endl;
-	delete this->_brain;
 }
 
 std::string	Dog::getType() const {
@@ -28,10 +26,6 @@ std::string	Dog::getType() const {
 
 void Dog::makeSound() const {
 	std::cout << this->getType() << " Barks." << std::endl;
-}
-
-Brain	Dog::useBrain() {
-	return *this->_brain;
 }
 
 std::ostream	&operator<<(std::ostream &o, Dog const &value) {
