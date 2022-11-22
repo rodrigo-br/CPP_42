@@ -2,7 +2,7 @@ SRCS	=	$(shell ls ./ | grep .cpp$)
 
 OBJS	=	$(SRCS:.cpp=.o)
 
-NAME	=	virtualism
+NAME	=	abstractclass
 
 CC 		=	c++
 CFLAGS	=	-Wall -Wextra -Werror -Wshadow -std=c++98
