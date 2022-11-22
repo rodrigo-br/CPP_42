@@ -5,6 +5,7 @@ MateriaSource::MateriaSource() : IMateriaSource(), _nOfKnownMaterials(0) {
 }
 
 MateriaSource::MateriaSource(MateriaSource const &src) {
+	for (int i = 0; i < 4; i++) { this->_known_materials[i] = NULL; }
 	*this = src;
 }
 
@@ -15,7 +16,11 @@ MateriaSource::~MateriaSource() {
 }
 
 MateriaSource	&MateriaSource::operator=(MateriaSource const &src) {
-	(void)src; // SOCORRO
+	for (int i = 0; i < 4; i++) { 
+		this->_known_materials[i] =
+		i < src._nOfKnownMaterials ? src._known_materials[i]->clone() : NULL;
+	}
+	return *this;
 }
 
 void	MateriaSource::learnMateria(AMateria *materia) {
