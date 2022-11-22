@@ -8,7 +8,8 @@ Character::Character(std::string name) : ICharacter(), _name(name), _nOfMaterial
 
 Character::~Character() {
 	for (int i = 0; i < this->_nOfMaterials; i++) {
-		delete this->_inventory[i];
+		this->unequip(i);
+		Character::materialsOnFloor++;
 	}
 }
 
@@ -33,9 +34,9 @@ void	Character::unequip(int idx) {
 		if (Character::floor[i] == NULL) {
 			Character::floor[i] = this->_inventory[idx];
 			this->_inventory[idx] = NULL;
+			return ;
 		}
 	}
-	return ;
 }
 
 AMateria*	Character::getMateriaFromFloor() {
@@ -59,12 +60,10 @@ AMateria*	Character::getMateriaFromFloor(int idx) {
 		std::cout << "This space is empty" << std::endl;
 		return (NULL);
 	}
-	AMateria *clone = floor[idx]->clone();
-	delete Character::floor[idx];
+	AMateria *found_material = floor[idx];
 	Character::floor[idx] = NULL;
-	return clone;
+	return found_material;
 }
-
 
 int			Character::materialsOnFloor = 10;
 AMateria	*Character::floor[10] = {
