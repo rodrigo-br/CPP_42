@@ -16,6 +16,7 @@ class Character : public ICharacter
 
 	public:
 
+		Character(Character const &src);
 		Character(std::string name);
 		Character();
 		~Character();
@@ -25,6 +26,7 @@ class Character : public ICharacter
 		void				use(int idx, ICharacter& target);
 		AMateria*			getMateriaFromFloor();
 		AMateria*			getMateriaFromFloor(int idx);
+		int					getNofMaterials() const;
 
 		static int			materialsOnFloor;
 		static AMateria		*floor[10];

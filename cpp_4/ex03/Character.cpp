@@ -1,15 +1,20 @@
 #include "Character.hpp"
 
-Character::Character() : ICharacter(), _name("Doe"), _nOfMaterials(0) {
+Character::Character() :
+	ICharacter(), _name("Doe"), _nOfMaterials(0) {
 }
 
-Character::Character(std::string name) : ICharacter(), _name(name), _nOfMaterials(0) {
+Character::Character(std::string name) :
+	ICharacter(), _name(name), _nOfMaterials(0) {
+}
+
+Character::Character(Character const &src) {
+	(void)src;
 }
 
 Character::~Character() {
 	for (int i = 0; i < this->_nOfMaterials; i++) {
-		this->unequip(i);
-		Character::materialsOnFloor++;
+		delete this->_inventory[i];
 	}
 }
 
@@ -63,6 +68,10 @@ AMateria*	Character::getMateriaFromFloor(int idx) {
 	AMateria *found_material = floor[idx];
 	Character::floor[idx] = NULL;
 	return found_material;
+}
+
+int	Character::getNofMaterials() const {
+	return this->_nOfMaterials;
 }
 
 int			Character::materialsOnFloor = 10;
