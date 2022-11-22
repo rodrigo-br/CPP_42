@@ -5,7 +5,7 @@ OBJS	=	$(SRCS:.cpp=.o)
 NAME	=	interface
 
 CC 		=	c++
-CFLAGS	=	-Wall -Wextra -Werror -Wshadow -std=c++98
+CFLAGS	=	-g3 -Wall -Wextra -Werror -Wshadow -std=c++98
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
