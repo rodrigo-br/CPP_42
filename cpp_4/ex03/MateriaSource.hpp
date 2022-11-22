@@ -12,8 +12,11 @@ class MateriaSource : public IMateriaSource
 		int			_nOfKnownMaterials;
 		
 	public:
+		MateriaSource(MateriaSource const &src);
 		MateriaSource();
 		~MateriaSource();
+
+		MateriaSource &operator=(MateriaSource const &src);
 
 		void		learnMateria(AMateria *materia);
 		AMateria*	createMateria(std::string const &type);

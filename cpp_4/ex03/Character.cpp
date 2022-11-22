@@ -9,7 +9,7 @@ Character::Character(std::string name) :
 }
 
 Character::Character(Character const &src) {
-	(void)src;
+	*this = src;
 }
 
 Character::~Character() {
@@ -25,7 +25,7 @@ std::string	const &Character::getName() const {
 void	Character::equip(AMateria* m) {
 	if (m == NULL)
 		return ;
-	this->_inventory[_nOfMaterials] = m;
+	this->_inventory[_nOfMaterials] = m->clone();
 	this->_nOfMaterials++;
 	Character::materialsOnFloor--;
 }

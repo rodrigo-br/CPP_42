@@ -25,4 +25,4 @@ fclean:		clean
 re:			fclean all
 
 test:	re
-		valgrind --leak-check=full --log-file="leaks.txt" ./$(NAME)
+		valgrind --leak-check=full --show-leak-kinds=all --log-file="leaks.txt" ./$(NAME)

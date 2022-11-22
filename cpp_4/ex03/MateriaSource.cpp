@@ -4,7 +4,18 @@ MateriaSource::MateriaSource() : IMateriaSource(), _nOfKnownMaterials(0) {
 	for (int i = 0; i < 4; i++) { this->_known_materials[i] = NULL; }
 }
 
+MateriaSource::MateriaSource(MateriaSource const &src) {
+	*this = src;
+}
+
 MateriaSource::~MateriaSource() {
+	for (int i = 0; i < this->_nOfKnownMaterials; i++) {
+		delete this->_known_materials[i];
+	}
+}
+
+MateriaSource	&MateriaSource::operator=(MateriaSource const &src) {
+	(void)src; // SOCORRO
 }
 
 void	MateriaSource::learnMateria(AMateria *materia) {
