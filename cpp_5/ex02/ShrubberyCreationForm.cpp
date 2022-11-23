@@ -1,0 +1,48 @@
+#include "ShrubberyCreationForm.hpp"
+
+ShrubberyCreationForm::ShrubberyCreationForm() :
+	AForm::AForm("ShrubberyCreationForm", 145, 137) {
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &src) :
+ AForm::AForm(src.getName(), src.getGradeToSign(), src.getGradeToExecute()) {
+}
+
+ShrubberyCreationForm::~ShrubberyCreationForm() {
+}
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &src) {
+	this->setName(src.getName());
+	this->setGradeToSign(src.getGradeToSign());
+	this->setGradeToExecute(src.getGradeToExecute());
+	return *this;
+}
+
+void	ShrubberyCreationForm::beSigned(Bureaucrat const &b) {
+	if (b.getGrade() > this->getGradeToSign()) {
+		std::cout << b.getName() << " couldn't sign " << this->getName() << " because not enough grade." << std::endl;
+		throw AForm::GradeTooLowException(); 
+	}
+	else if (this->isSigned()) {
+		std::cout << b.getName() << " couldn't sign " << this->getName() << " because it's already signed" << std::endl;
+		throw AForm::AFormAlreadySigned();
+	}
+	else { 
+		this->setSigned();
+		std::cout << b.getName() << " signed " << this->getName() << std::endl;
+	}
+}
+
+void	ShrubberyCreationForm::beExecuted(Bureaucrat const &b) {
+	if (!this->isSigned()) {
+		std::cout << b.getName() << " couldn't execute " << this->getName() << " because it isn't signed yet." << std::endl;
+		throw AForm::NotSignedException();
+	}
+	else if (b.getGrade() > this->getGradeToExecute()) {
+		std::cout << b.getName() << " couldn't execute " << this->getName() << " because not enough grade." << std::endl;
+		throw AForm::GradeTooLowException(); 
+	}
+	else { 
+		std::cout << b.getName() << " executed " << this->getName() << std::endl;
+	}
+}
