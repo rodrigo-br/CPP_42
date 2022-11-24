@@ -38,6 +38,7 @@ void test_no_grade() {
 	Bureaucrat Nico("Nico");
 	try {  Nico.signForm(*valid); }
 	catch (std::exception &e) { std::cout << e.what() << std::endl; }
+	delete valid;
 }
 
 int main(void)
