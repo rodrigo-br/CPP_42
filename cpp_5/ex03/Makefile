@@ -18,7 +18,6 @@ $(NAME): $(OBJ_DIR) $(OBJS)
 clean:
 			rm -rf $(OBJS)
 			rm -rf leaks.txt
-			rm -rf arvri_shrubbery
 
 fclean:		clean
 			rm -f $(NAME)
