@@ -58,7 +58,7 @@ void	Bureaucrat::signForm(AForm &f) {
 }
 
 void	Bureaucrat::executeForm(AForm &f) {
-	f.beExecuted(*this);
+	f.execute(*this);
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {

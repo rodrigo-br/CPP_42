@@ -15,6 +15,7 @@ class AForm
 		const short			_gradeToExecute;
 
 	protected:
+
 		void				setName(std::string name);
 		void				setSigned();
 		void				setGradeToSign(short n);
@@ -35,7 +36,7 @@ class AForm
 		short				getGradeToExecute() const;
 
 		virtual void		beSigned(Bureaucrat const &b) = 0;
-		virtual void		beExecuted(Bureaucrat const &b) = 0;
+		virtual void		execute(Bureaucrat const & executor) const = 0;
 
 	class GradeTooHighException : public std::exception
 	{

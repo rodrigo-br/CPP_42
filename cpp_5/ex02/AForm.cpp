@@ -47,7 +47,7 @@ void	AForm::beSigned(Bureaucrat const &b) {
 	}
 }
 
-void	AForm::beExecuted(Bureaucrat const &b) {
+void	AForm::execute(Bureaucrat const &b) const {
 	if (!this->isSigned()) {
 		std::cout << b.getName() << " couldn't execute " << this->getName() << " because it isn't signed yet." << std::endl;
 		throw AForm::NotSignedException();
