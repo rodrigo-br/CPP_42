@@ -17,7 +17,7 @@ $(NAME): $(OBJ_DIR) $(OBJS)
 
 clean:
 			rm -rf $(OBJS)
-			rm -rf leaks*
+			rm -rf leaks.txt
 
 fclean:		clean
 			rm -f $(NAME)
@@ -25,12 +25,4 @@ fclean:		clean
 re:			fclean all
 
 test:	re
-		valgrind --leak-check=full --show-leak-kinds=all --log-file="leaks.txt" ./$(NAME) 10.123456
-		./$(NAME) 42.654321f
-		./$(NAME) 10
-		./$(NAME) a
-		./$(NAME) 10.0.0
-		./$(NAME) cavalinho
-		./$(NAME) nan
-		valgrind --leak-check=full --show-leak-kinds=all --log-file="leaks1.txt" ./$(NAME) 23156165165165
-		valgrind --leak-check=full --show-leak-kinds=all --log-file="leaks2.txt" ./$(NAME) +inff
+		valgrind --leak-check=full --show-leak-kinds=all --log-file="leaks.txt" ./$(NAME)
