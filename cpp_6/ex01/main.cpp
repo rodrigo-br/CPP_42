@@ -13,6 +13,7 @@ int main (void)
 	Data		*data = new Data();
 	uintptr_t	serialized_data;
 	Data		*deserialized_data; print_line();
+	std::cout << std::boolalpha;
 
 	t("Compare data and deserialized_data: ");
 	std::cout << (deserialized_data == data) << std::endl;
