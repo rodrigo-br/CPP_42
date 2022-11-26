@@ -16,7 +16,6 @@ C::C() {
 }
 
 Base *generate(void) {
-	srand(time(NULL));
 	short choice = rand() % 3;
 	if (choice == 0) {
 		return new A;
