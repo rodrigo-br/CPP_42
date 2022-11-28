@@ -18,6 +18,10 @@ void	print_array(Array<T> a) {
 
 int main(void)
 {
+	Array<unsigned int> empty;
+	print_line();t("Empty array");print_line();
+	std::cout << empty.size() << std::endl;
+
 	Array<unsigned int> a(5);
 	for (int i=0;i<5;i++) {
 		a[i] = i;

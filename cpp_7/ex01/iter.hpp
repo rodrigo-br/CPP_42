@@ -25,4 +25,26 @@ void sum_element(std::string &i) {
 	std::cout << "can't sum string :(" << std::endl;
 };
 
+template<typename T>
+void iter(T const *array, size_t lenght, void(*f)(T const &)) {
+	for (size_t i = 0; i < lenght; i++) {
+		f(array[i]);
+	}
+};
+
+template<typename T>
+void print_element(T const  &i) {
+	std::cout << i << std::endl;
+};
+
+template<typename T>
+void sum_element(T const &i) {
+	std::cout << (T)(i + 1) << std::endl;
+};
+
+void sum_element(std::string const &i) {
+	(void)i;
+	std::cout << "can't sum string :(" << std::endl;
+};
+
 #endif 

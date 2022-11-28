@@ -13,7 +13,7 @@ template<typename T>class Array
 
 		Array<T>() : _array(NULL), _size(0) {};
 
-		Array<T>(unsigned int n) : _size(n) {
+		Array<T>(const unsigned int n) : _size(n) {
 			_array = new T[n];
 		};
 
@@ -27,8 +27,10 @@ template<typename T>class Array
 		};
 
 		T	&operator[](unsigned int i) {
-			if (i >= 0 && i < _size)
+			if (i >= 0 && i < _size) {
+				// std::cout << _array[i] << std::endl;
 				return _array[i];
+			}
 			throw WrongIndexException();
 		};
 
