@@ -1,5 +1,9 @@
 SRCS	=	$(shell ls ./ | grep .cpp$)
 
+.SUFFIXES: .o .cpp .hpp .tpp
+
+.PHONY: all clean fclean re
+
 OBJS	=	$(SRCS:.cpp=.o)
 
 NAME	=	array
@@ -20,7 +24,7 @@ clean:
 			rm -rf leaks.txt
 
 fclean:		clean
-			rm -f $(NAME)
+			rm -rf $(NAME)
 
 re:			fclean all
 
